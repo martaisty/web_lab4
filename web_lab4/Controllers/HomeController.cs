@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using web_lab4.Models;
+using web_lab4.Models.ViewModels;
 
 namespace web_lab4.Controllers
 {
@@ -19,11 +20,6 @@ namespace web_lab4.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

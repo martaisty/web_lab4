@@ -1,6 +1,4 @@
-using System;
-
-namespace web_lab4.Models
+namespace web_lab4.Models.ViewModels
 {
     public class ErrorViewModel
     {
