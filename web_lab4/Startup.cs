@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using web_lab4.Abstractions;
+using web_lab4.Hubs;
 using web_lab4.Models;
 using web_lab4.Repositories;
 
@@ -28,6 +29,7 @@ namespace web_lab4
                 SqlServerDbContextOptionsExtensions.UseSqlServer(options,
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddSignalR();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -56,7 +58,6 @@ namespace web_lab4
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -66,6 +67,7 @@ namespace web_lab4
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub>("/chat");
                 endpoints.MapControllerRoute(
                     "default",
                     "{controller=Home}/{action=Index}");

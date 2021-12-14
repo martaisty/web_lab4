@@ -86,7 +86,7 @@ namespace web_lab4.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
 
@@ -96,7 +96,7 @@ namespace web_lab4.Controllers
             {
                 new(ClaimsIdentity.DefaultNameClaimType, user.Username)
             };
-            
+
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
                 ClaimsIdentity.DefaultRoleClaimType);
 

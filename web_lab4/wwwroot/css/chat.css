@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+}
+
+#logout-btn {
+    cursor: pointer;
+}
+
+.chat-wrapper {
+    display: grid;
+    grid-template-rows: calc(100vh - 8.5rem) max-content;
+}
+
+.messages {
+    overflow-y: auto;
+}
+
+.msg {
+    margin: 0.1rem;
+    padding: 0.3rem 0.5rem;
+    max-width: 70%;
+    border-radius: 15px;
+    width: max-content;
+}
+
+.msg > .msg__username {
+    color: darkslategray;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.system-msg {
+    color: gray;
+    align-self: center;
+    width: max-content;
+}
+
+.msg:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.msg--my {
+    background-color: #e7c59d;
+    align-self: end;
+}
+
+.msg--other {
+    background-color: #c1cbe6;
+}
