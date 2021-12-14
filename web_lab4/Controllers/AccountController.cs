@@ -35,7 +35,6 @@ namespace web_lab4.Controllers
                 User user = await _uow.Users.GetFirstAsync(u => u.Username == model.Username);
                 if (user == null)
                 {
-                    // TODO hash password
                     user = new User {Username = model.Username, Password = model.Password};
 
                     await _uow.Users.InsertAsync(user);
@@ -64,7 +63,6 @@ namespace web_lab4.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO hash password
                 User user = await _uow.Users.GetFirstAsync(u =>
                     u.Username == model.Username
                     && u.Password == model.Password);
